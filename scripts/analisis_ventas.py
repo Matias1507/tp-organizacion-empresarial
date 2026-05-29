@@ -1,4 +1,27 @@
 import pandas as pd
+ Matias1507-patch-1
+
+# Leer archivo CSV
+
+df = pd.read_csv("datos/ventas.csv")
+
+# Crear columna total
+
+df["total"] = df["cantidad"] * df["precio"]
+
+# Calcular ventas totales
+
+ventas_totales = df["total"].sum()
+
+# Producto más vendido
+
+producto_mas_vendido = df.groupby("producto")["cantidad"].sum().idxmax()
+
+# Mostrar resultados
+
+print("Ventas totales:", ventas_totales)
+print("Producto más vendido:", producto_mas_vendido)
+=======
 import matplotlib.pyplot as plt
 
 # 1. Leer los datos del archivo CSV que creamos
@@ -34,3 +57,4 @@ plt.tight_layout()
 # Guardamos el gráfico en la carpeta de resultados
 plt.savefig('resultados/grafico_ventas.png')
 print("\nGráfico generado con éxito en 'resultados/grafico_ventas.png'.")
+ main
